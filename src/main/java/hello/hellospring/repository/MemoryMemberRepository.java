@@ -4,7 +4,7 @@ import hello.hellospring.domain.Member;
 
 import java.util.*;
 
-public class MemoryMemberRepository implements MembeRepository {
+public class MemoryMemberRepository implements MemberRepository {
     // 일단은 저장소가 선정되지 않은 상태라 store가 디비라고 생각하면 된다.
     public static Map<Long, Member> store = new HashMap<>();
     public static long sequence = 0L;
@@ -32,4 +32,9 @@ public class MemoryMemberRepository implements MembeRepository {
     public List<Member> findALl() {
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore() {
+        store.clear();
+    }
+
 }
