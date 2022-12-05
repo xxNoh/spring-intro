@@ -13,7 +13,6 @@ import java.util.Optional;
  * repository 는 그냥 기계적인? findAll(), findById()
  * ⭐️ memberService 처럼 외부에서 memberRepository 를 넣어주는 것을 DI 라고 한다.
  */
-@Service
 public class MemberService {
     private final MemberRepository memberRepository;
     @Autowired
