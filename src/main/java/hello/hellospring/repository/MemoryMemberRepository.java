@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
 public class MemoryMemberRepository implements MemberRepository {
     // 일단은 저장소가 선정되지 않은 상태라 store가 디비라고 생각하면 된다.
     public static Map<Long, Member> store = new HashMap<>();
@@ -31,7 +30,7 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public List<Member> findALl() {
+    public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
 

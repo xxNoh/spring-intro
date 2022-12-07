@@ -30,7 +30,7 @@ public class JdbcMemberRepository implements MemberRepository{
     }
 
     @Override
-    public List<Member> findALl() {
+    public List<Member> findAll() {
         return null;
     }
 }

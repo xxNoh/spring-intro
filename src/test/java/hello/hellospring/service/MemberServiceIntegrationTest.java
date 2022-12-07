@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -28,10 +29,11 @@ class MemberServiceIntegrationTest {
      * 테스트는 예외 테스트가 정상 테스트보다 더 중요하다.
      */
     @Test
+    @Commit
     void join() {
         //given
         Member member = new Member();
-        member.setName("spring2");
+        member.setName("spring4");
         //when
         Long saveId = memberService.join(member);
 
@@ -58,6 +60,13 @@ class MemberServiceIntegrationTest {
 
     @Test
     void findMembers() {
+        // given
+            Member member = new Member();
+            member.setName("spring3");
+        // when
+            Member result = memberRepository.findByName(member.getName()).get();
+        // then
+        assertThat(result.getName()).isEqualTo("spring4");
     }
 
     @Test
